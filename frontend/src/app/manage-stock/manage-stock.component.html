@@ -1,76 +1,84 @@
 <body>
-    <mat-card>
-        <mat-card-content>Manage Stock</mat-card-content>
-    </mat-card> 
+  <mat-card>
+    <mat-card-content>
+      <mat-card-title>Manage Stock</mat-card-title>
+    </mat-card-content>
+  </mat-card>
 
-    <br>
+  <br />
 
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Add New Product</mat-panel-title>
-        </mat-expansion-panel-header>
-        
-        <div class="add-form">
-            
-            <mat-form-field>
-                <mat-label>Product Code</mat-label>
-                <input matInput [(ngModel)]="product.prodCode">
-            </mat-form-field>
-    
-            <mat-form-field>
-                <mat-label>Product Name</mat-label>
-                <input matInput [(ngModel)]="product.prodName">
-            </mat-form-field>
-          
-            <mat-form-field>
-                <mat-label>Quantity</mat-label>
-                <input matInput type="number" [(ngModel)]="product.quantity">
-            </mat-form-field>
-          
-            <mat-form-field>
-                <mat-label>Price</mat-label>
-                <input matInput type="number" [(ngModel)]="product.price">
-            </mat-form-field>
-    
-            <mat-form-field>
-                <mat-label>Image</mat-label>
-                <input matInput [(ngModel)]="product.image">
-            </mat-form-field>
-        </div>
-      
-        <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
-    </mat-expansion-panel>  <br>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Add New Product</mat-panel-title>
+    </mat-expansion-panel-header>
 
-    <mat-card>
-        <mat-card-content>
-            Manage Stock
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Product Code</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Date Added</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let product of products">
-                    <td>{{ product.image }}</td>
-                    <td>{{ product.prodCode }}</td>
-                    <td>{{ product.prodName }}</td>
-                    <td>{{ product.quantity }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.dateAdd }}</td>
-                    <td>
-                      <button mat-raised-button class="action-btn" color="primary" (click)="updateProduct(product)">Update</button>
-                      <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>                       
-        </mat-card-content>
-    </mat-card>
+    <div class="add-form">
+      <mat-form-field>
+        <mat-label>Product Code</mat-label>
+        <input matInput [(ngModel)]="product.prodCode" required>
+        <mat-error>Product Code is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput [(ngModel)]="product.prodName" required>
+        <mat-error>Product Name is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input matInput type="number" [(ngModel)]="product.quantity" required>
+        <mat-error>Quantity is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="product.price" required>
+        <mat-error>Price is required.</mat-error>
+      </mat-form-field>
+
+    </div>
+    <!-- ngIf empty field -->
+    <div *ngIf="errorMessage != null">
+      <p class="errorMessage">{{errorMessage}}</p></div>
+    <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
+  </mat-expansion-panel>
+  <br />
+
+  <mat-card>
+    <mat-card-content>
+      Available Stock<br />
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Insert product code or name" [(ngModel)]="searchKey">
+      </mat-form-field>
+      <div class="table-container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Product Code</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col">Date Added</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products | search:searchKey">
+              <td>{{ product.prodCode }}</td>
+              <td>{{ product.prodName }}</td>
+              <td>{{ product.quantity }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.dateAdd }}</td>
+              <td>
+                <button mat-raised-button class="action-btn" color="primary" (click)="updateProduct(product)">Update</button>
+                <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </body>

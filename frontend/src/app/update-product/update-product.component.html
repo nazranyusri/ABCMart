@@ -1,29 +1,29 @@
 <h2 mat-dialog-title>Update Product</h2>
 <div mat-dialog-content>
   <form>
-    <div>
-      <label>Image:</label>
-      <input type="text" [(ngModel)]="data.image" name="image">
-    </div>
-    <div>
-      <label>Product Code:</label>
-      <input type="text" [(ngModel)]="data.prodCode" name="prodCode">
-    </div>
-    <div>
-      <label>Product Name:</label>
-      <input type="text" [(ngModel)]="data.prodName" name="prodName">
-    </div>
-    <div>
-      <label>Quantity:</label>
-      <input type="number" [(ngModel)]="data.quantity" name="quantity">
-    </div>
-    <div>
-      <label>Price:</label>
-      <input type="number" [(ngModel)]="data.price" name="price">
-    </div>
+    <mat-form-field>
+      <mat-label>Product Code</mat-label>
+      <input matInput [(ngModel)]="updatedProduct.prodCode" name="prodCode" placeholder="Enter product code" required>
+      <mat-error>Product Code is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Product Name</mat-label>
+      <input matInput [(ngModel)]="updatedProduct.prodName" name="prodName" placeholder="Enter product name" required>
+      <mat-error>Product Name is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <input matInput type="number" [(ngModel)]="updatedProduct.quantity" name="quantity" placeholder="Enter quantity" required>
+      <mat-error>Quantity is required.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" [(ngModel)]="updatedProduct.price" name="price" placeholder="Enter price" required>
+      <mat-error>Price is required.</mat-error>
+    </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
-  <button mat-button color="primary" (click)="onSaveClick()">Save</button>
+  <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
 </div>

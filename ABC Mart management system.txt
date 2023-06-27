@@ -37,5 +37,4 @@ item
 2. product name
 3. quantity
 4. price
-5. image
-6. date added
+5. date added

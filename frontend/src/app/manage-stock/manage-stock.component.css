@@ -11,3 +11,17 @@ body{
 .action-btn{
     margin-right: 20px;
 }
+  
+mat-form-field {
+    width: 100%;
+}
+
+.table-container {
+    overflow: auto;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+}
