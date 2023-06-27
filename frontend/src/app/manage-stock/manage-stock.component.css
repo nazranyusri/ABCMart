@@ -1,0 +1,13 @@
+body{
+    margin: 10px;
+}
+
+.add-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.action-btn{
+    margin-right: 20px;
+}

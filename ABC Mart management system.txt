@@ -1,0 +1,41 @@
+ABC Mart management system
+
+2 user - staff & admin
+staff -
+1. login
+2. update profile
+2. manage stock
+3. search stock
+
+admin -
+1. login
+2. dashboard - show low stock
+3. manage staff
+4. manage stock
+5. search stock
+
+
+MYSQL-
+staff -
+1. name
+2. email
+3. password
+4. telno
+5. address
+6. gender
+
+admin
+1. name
+2. email
+3. password
+4. telno
+5. address
+6. gender
+
+item
+1. product code
+2. product name
+3. quantity
+4. price
+5. image
+6. date added

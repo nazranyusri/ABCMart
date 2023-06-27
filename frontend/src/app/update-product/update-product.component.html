@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Update Product</h2>
+<div mat-dialog-content>
+  <form>
+    <div>
+      <label>Image:</label>
+      <input type="text" [(ngModel)]="data.image" name="image">
+    </div>
+    <div>
+      <label>Product Code:</label>
+      <input type="text" [(ngModel)]="data.prodCode" name="prodCode">
+    </div>
+    <div>
+      <label>Product Name:</label>
+      <input type="text" [(ngModel)]="data.prodName" name="prodName">
+    </div>
+    <div>
+      <label>Quantity:</label>
+      <input type="number" [(ngModel)]="data.quantity" name="quantity">
+    </div>
+    <div>
+      <label>Price:</label>
+      <input type="number" [(ngModel)]="data.price" name="price">
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button color="primary" (click)="onSaveClick()">Save</button>
+</div>

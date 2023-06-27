@@ -1,0 +1,76 @@
+<body>
+    <mat-card>
+        <mat-card-content>Manage Stock</mat-card-content>
+    </mat-card> 
+
+    <br>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Add New Product</mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <div class="add-form">
+            
+            <mat-form-field>
+                <mat-label>Product Code</mat-label>
+                <input matInput [(ngModel)]="product.prodCode">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Product Name</mat-label>
+                <input matInput [(ngModel)]="product.prodName">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" [(ngModel)]="product.quantity">
+            </mat-form-field>
+          
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput type="number" [(ngModel)]="product.price">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Image</mat-label>
+                <input matInput [(ngModel)]="product.image">
+            </mat-form-field>
+        </div>
+      
+        <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
+    </mat-expansion-panel>  <br>
+
+    <mat-card>
+        <mat-card-content>
+            Manage Stock
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product Code</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <td>{{ product.image }}</td>
+                    <td>{{ product.prodCode }}</td>
+                    <td>{{ product.prodName }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.dateAdd }}</td>
+                    <td>
+                      <button mat-raised-button class="action-btn" color="primary" (click)="updateProduct(product)">Update</button>
+                      <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>                       
+        </mat-card-content>
+    </mat-card>
+</body>
