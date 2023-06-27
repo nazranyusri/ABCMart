@@ -18,7 +18,7 @@ router.get('/getAll', (req, res, next) => {
 //create product
 router.post('/add', (req, res, next) => {
     let product = req.body;
-    var sql = `INSERT INTO product (prodCode, prodName, quantity, price, image, dateAdd) VALUES ('${product.prodCode}', '${product.prodName}', '${product.quantity}', '${product.price}', '${product.image}', CURDATE())`;
+    var sql = `INSERT INTO product (prodCode, prodName, quantity, price, dateAdd) VALUES ('${product.prodCode}', '${product.prodName}', '${product.quantity}', '${product.price}', CURDATE())`;
     connection.query(sql, (err, result) => {
         if(!err){
             return res.status(200).json({message: "Product added successfully"});
@@ -31,8 +31,8 @@ router.post('/add', (req, res, next) => {
 //update product
 router.patch('/update', (req, res, next) => {
     let product = req.body;
-    var sql = "UPDATE product SET prodCode = ?, prodName = ?, quantity = ?, price = ?, image = ?, dateAdd = CURDATE() WHERE id = ?";
-    connection.query(sql, [product.prodCode, product.prodName, product.quantity, product.price, product.image, product.id], (err, result) => {
+    var sql = "UPDATE product SET prodCode = ?, prodName = ?, quantity = ?, price = ?, dateAdd = CURDATE() WHERE id = ?";
+    connection.query(sql, [product.prodCode, product.prodName, product.quantity, product.price, product.id], (err, result) => {
         if(!err){
             if(result.affectedRows == 0){
                 return res.status(404).json({message: "Product id not found"});

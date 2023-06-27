@@ -5,7 +5,7 @@
     </mat-card-content>
   </mat-card>
 
-  <br />
+  <br>
 
   <mat-expansion-panel>
     <mat-expansion-panel-header>
@@ -15,25 +15,25 @@
     <div class="add-form">
       <mat-form-field>
         <mat-label>Product Code</mat-label>
-        <input matInput [(ngModel)]="product.prodCode" required>
+        <input matInput [(ngModel)]="product.prodCode">
         <mat-error>Product Code is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Product Name</mat-label>
-        <input matInput [(ngModel)]="product.prodName" required>
+        <input matInput [(ngModel)]="product.prodName">
         <mat-error>Product Name is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Quantity</mat-label>
-        <input matInput type="number" [(ngModel)]="product.quantity" required>
+        <input matInput type="number" [(ngModel)]="product.quantity">
         <mat-error>Quantity is required.</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Price</mat-label>
-        <input matInput type="number" [(ngModel)]="product.price" required>
+        <input matInput type="number" [(ngModel)]="product.price">
         <mat-error>Price is required.</mat-error>
       </mat-form-field>
 
@@ -43,11 +43,12 @@
       <p class="errorMessage">{{errorMessage}}</p></div>
     <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
   </mat-expansion-panel>
-  <br />
+
+  <br>
 
   <mat-card>
     <mat-card-content>
-      Available Stock<br />
+      Available Stock<br>
       <mat-form-field>
         <mat-label>Search</mat-label>
         <input matInput placeholder="Insert product code or name" [(ngModel)]="searchKey">
@@ -65,18 +66,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of products | search:searchKey">
-              <td>{{ product.prodCode }}</td>
-              <td>{{ product.prodName }}</td>
-              <td>{{ product.quantity }}</td>
-              <td>{{ product.price }}</td>
-              <td>{{ product.dateAdd }}</td>
-              <td>
-                <button mat-raised-button class="action-btn" color="primary" (click)="updateProduct(product)">Update</button>
-                <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
-              </td>
-            </tr>
-          </tbody>
+            <ng-container *ngIf="( products | search: searchKey) as results">
+              <tr *ngFor="let product of results">
+                <td>{{ product.prodCode }}</td>
+                <td>{{ product.prodName }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.dateAdd | date:'dd/MM/yyyy' }}</td>
+                <td>
+                  <button mat-raised-button class="action-btn" color="primary" (click)="updateProduct(product)">Update</button>
+                  <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
+                </td>
+              </tr>
+              <p *ngIf="results.length === 0" class="no-records">No Records Found</p>  
+            </ng-container>
+          </tbody>     
         </table>
       </div>
     </mat-card-content>

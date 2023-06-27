@@ -25,3 +25,7 @@ mat-form-field {
     font-weight: bold;
     font-size: 12px;
 }
+
+.no-records {
+    padding-top: 15px;
+}
