@@ -17,7 +17,7 @@ router.get('/getAll', (req, res, next) => {
 //create user
 router.post('/add', (req, res, next) => {
     let user = req.body;
-    var sql = `INSERT INTO user (name, email, password, telno, address, gender, role) VALUES ('${user.name}', '${user.email}', '${user.password}', '${user.tellno}', '${user.address}', '${user.gender}', '${user.role}')`;
+    var sql = `INSERT INTO user (name, email, password, telno, address, gender, role) VALUES ('${user.name}', '${user.email}', '${user.password}', '${user.telno}', '${user.address}', '${user.gender}', 'staff')`;
     connection.query(sql, (err, result) => {
         if(!err){
             return res.status(200).json({message: "User added successfully"});
@@ -30,8 +30,8 @@ router.post('/add', (req, res, next) => {
 //update user (name, email, address and tellno)
 router.patch('/update', (req, res, next) => {
     let user = req.body;
-    var sql = "UPDATE user SET name = ?, email = ?, telno = ?,address = ? WHERE id = ?";
-    connection.query(sql, [user.name, user.email, user.address, user.tellno, user.id], (err, result) => {
+    var sql = "UPDATE user SET name = ?, email = ?, password = ?, telno = ?,address = ? WHERE id = ?";
+    connection.query(sql, [user.name, user.email, user.password, user.telno, user.address, user.id], (err, result) => {
         if(!err){
             if(result.affectedRows == 0){
                 return res.status(404).json({message: "User id not found"});

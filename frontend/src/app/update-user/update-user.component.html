@@ -6,16 +6,25 @@
             <input matInput [(ngModel)]="updatedUser.name" name="name" placeholder="Enter username" required>
             <mat-error>Username is required.</mat-error>
         </mat-form-field>
+
         <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput [(ngModel)]="updatedUser.email" name="email" placeholder="Enter email" required>
             <mat-error>Email is required.</mat-error>
         </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="updatedUser.password" name="password" placeholder="Enter email" required>
+            <mat-error>Password is required.</mat-error>
+        </mat-form-field>
+
         <mat-form-field>
             <mat-label>Telephone Number</mat-label>
-            <input matInput [(ngModel)]="updatedUser.telno" name="telno" placeholder="Enter Tell no" required>
+            <input matInput [(ngModel)]="updatedUser.telno" name="telno" placeholder="Enter tel no" required>
             <mat-error>Telephone Number is required.</mat-error>
         </mat-form-field>
+
         <mat-form-field>
             <mat-label>Address</mat-label>
             <input matInput [(ngModel)]="updatedUser.address" name="address" placeholder="Enter address" required>
@@ -23,6 +32,7 @@
         </mat-form-field>    
     </form>
 </div>
+
 <div mat-dialog-actions>
     <button mat-raised-button (click)="onCancelClick()">Cancel</button>
     <button mat-raised-button color="primary" (click)="onSaveClick()">Save</button>
