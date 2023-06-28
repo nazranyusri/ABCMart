@@ -84,8 +84,6 @@ export class ManageUserComponent implements OnInit {
       );
     }
   }
-  
-
 
   resetForm() {
     this.user = {
@@ -107,7 +105,7 @@ export class ManageUserComponent implements OnInit {
       this.user.telno === '' ||
       this.user.address === ''
     ) {
-      this.errorMessage = 'Please fill in all required fields';
+      this.errorMessage = 'Please fill in all the fields.';
       return false;
     }
     return true;
