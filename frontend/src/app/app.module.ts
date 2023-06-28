@@ -21,12 +21,6 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { MatDialogModule } from '@angular/material/dialog';
 import { SearchPipe } from './pipes/search.pipe';
 import { LoginComponent } from './login/login.component';
-// import { CarouselComponent } from './carousel/carousel.component';
-// import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { HammerModule } from '@angular/platform-browser';
-// import { IgxCarouselModule } from 'igniteui-angular';
-// import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { SearchUserPipe } from './pipes/search-user.pipe';
@@ -40,8 +34,6 @@ import { SearchUserPipe } from './pipes/search-user.pipe';
     UpdateProductComponent,
     SearchPipe,
     LoginComponent,
-    // CarouselComponent,
-    // MdbCarouselModule
     ManageUserComponent,
     UpdateUserComponent,
     SearchUserPipe
