@@ -5,10 +5,10 @@
         [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item routerLink="home">Home</a>
-        <a mat-list-item routerLink="managestock">Manage Stock</a>
-        <a mat-list-item routerLink="managestaff" *ngIf="isAdmin">Manage Staff</a>
-        <a mat-list-item routerLink="login" (click)="logout()">Log Out</a>
+        <a mat-list-item routerLinkActive="active-link" routerLink="home">Home</a>
+        <a mat-list-item routerLinkActive="active-link" routerLink="managestock">Manage Stock</a>
+        <a mat-list-item routerLinkActive="active-link" routerLink="managestaff" *ngIf="isAdmin">Manage Staff</a>
+        <a mat-list-item routerLinkActive="active-link" routerLink="login" (click)="logout()">Log Out</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
