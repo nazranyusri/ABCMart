@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 08:45 PM
+-- Generation Time: Jun 28, 2023 at 02:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `webtech`
 --
-CREATE DATABASE IF NOT EXISTS `webtech` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `webtech`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +33,7 @@ CREATE TABLE `product` (
   `prodCode` varchar(10) NOT NULL,
   `prodName` varchar(30) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` decimal(3,2) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
   `dateAdd` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -45,8 +43,10 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `prodCode`, `prodName`, `quantity`, `price`, `dateAdd`) VALUES
 (1, 'CRN01', 'Corntoz', 10, '0.50', '2023-06-27'),
-(20, 'naz', 'naz', 1, '1.00', '2023-06-28'),
-(33, 'asdd', 'asd', 1, '1.00', '2023-06-28');
+(47, 'AYMS03', 'Ayamas Nugget', 30, '15.99', '2023-06-28'),
+(48, 'GL01', 'Gula Halus', 60, '5.50', '2023-06-28'),
+(51, 'S01', 'Sosej Ramly', 3, '1.99', '2023-06-28'),
+(52, 'HB09', 'Hash brown', 5, '2.19', '2023-06-28');
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,16 @@ CREATE TABLE `user` (
   `gender` varchar(6) NOT NULL,
   `role` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `telno`, `address`, `gender`, `role`) VALUES
+(5, 'Ahmad Nazran', 'nazran808@gmail.com', 'nazran2001', '0104439067', 'Shah Alam', 'Male', 'admin'),
+(6, 'Muhammad Hafizzul', 'muhammadhafizzul@gmail.com', 'hafizzul2001', '010432889', 'Kokdiang', 'Male', 'staff'),
+(7, 'Megat Irfan Zackry', 'megatirfan@gmail.com', 'megat2001', '01115161474', 'Kuala Kangsar', 'Male', 'staff'),
+(8, 'Muizzuddin', 'muizzuddin@gmail.com', 'muiz2001', '0123048995', 'Rembau', 'Male', 'staff');
 
 --
 -- Indexes for dumped tables
@@ -90,13 +100,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
