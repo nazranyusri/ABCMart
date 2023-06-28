@@ -1,0 +1,16 @@
+{
+    "staticRules": [
+      {
+        "source": "dist/frontend",
+        "headers": {
+          "/": {
+            "Content-Type": "text/html"
+          },
+          "/*": {
+            "cache-control": "3600"
+          }
+        }
+      }
+    ]
+  }
+  
