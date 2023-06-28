@@ -15,6 +15,7 @@ admin:
 5. search stock
 
 MYSQL:
+
 user:
 1. name
 2. email
