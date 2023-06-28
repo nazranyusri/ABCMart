@@ -20,7 +20,13 @@ import { MatInputModule } from '@angular/material/input';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SearchPipe } from './pipes/search.pipe';
-
+import { LoginComponent } from './login/login.component';
+// import { CarouselComponent } from './carousel/carousel.component';
+// import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { HammerModule } from '@angular/platform-browser';
+// import { IgxCarouselModule } from 'igniteui-angular';
+// import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +34,10 @@ import { SearchPipe } from './pipes/search.pipe';
     ManageStockComponent,
     HomeComponent,
     UpdateProductComponent,
-    SearchPipe
+    SearchPipe,
+    LoginComponent,
+    // CarouselComponent,
+    // MdbCarouselModule
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,10 @@ import { SearchPipe } from './pipes/search.pipe';
     MatCardModule,
     MatExpansionModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    // NgbModule,
+    // HammerModule,
+    // IgxCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
