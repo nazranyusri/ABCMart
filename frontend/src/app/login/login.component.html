@@ -1,1 +1,20 @@
-<button mat-raised-button color="primary" (click)="login()">Login</button>
+<div class="login-container">
+    <mat-card class="login-form">
+        <span><img src="../assets/img/abcmartlogo.png" alt="logo" class="logo"></span> <br>
+        <mat-card-title>Inventory Management System</mat-card-title><br><br>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" required>
+            <mat-error>Email is required.</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="password" required>
+            <mat-error>Password is required.</mat-error>
+        </mat-form-field>
+        <div class ="errorMessage">{{errorMessage}}</div>
+        <br>
+        <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </mat-card>
+</div>

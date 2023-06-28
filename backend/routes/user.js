@@ -59,7 +59,22 @@ router.delete('/delete/:id', (req, res, next) => {
     });
 });
 
-
+//simple authentication
+router.post('/authenticate', (req, res, next) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    var sql = "SELECT * FROM user WHERE email = ? AND password = ?";
+    connection.query(sql, [email, password], (err, result) => {
+        if(!err){
+            if(result.length == 0){
+                return res.status(404).json({message: "Invalid Username or Password!"});
+            }
+            return res.status(200).json({user: result[0]});
+        }else{
+            return res.status(500).json(err);
+        }
+    });
+});
 
 
 
