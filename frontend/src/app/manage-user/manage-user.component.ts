@@ -72,17 +72,15 @@ export class ManageUserComponent implements OnInit {
   }
 
   deleteUser(user: User) {
-    if (confirm('Are you sure you want to delete this user?')) {
-      this.userService.deleteUser(user.id).subscribe(
-        (response: any) => {
-          console.log(response);
-          this.getAllUser();
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
-    }
+    this.userService.deleteUser(user.id).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getAllUser();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
   resetForm() {

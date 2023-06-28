@@ -6,8 +6,8 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, data: { page: 'login' } },
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'managestock', component: ManageStockComponent},
   { path: 'managestaff', component: ManageUserComponent},
