@@ -15,6 +15,18 @@ router.get('/getAll', (req, res, next) => {
     });
 }); 
 
+//get all products below 5
+router.get('/getLowQuantity', (req, res, next) => {
+    sql = `SELECT * FROM product WHERE quantity < 6 ORDER BY quantity ASC`;
+    connection.query(sql, (err, result) => {
+        if(!err){
+            return res.status(200).json({products: result});
+        }else{
+            return res.status(500).json(err);
+        }
+    });
+}); 
+
 //create product
 router.post('/add', (req, res, next) => {
     let product = req.body;

@@ -1,1 +1,44 @@
-<img src="../assets/img/banner1.jpeg" class="image1">
+
+<body>
+<mat-grid-list cols="1" rowHeight="350" gutterSize="0px">
+    <mat-grid-tile class="header"> 
+        <div class="content1">
+            <div class="text1"><h2>ABC Mart</h2></div>
+            <div class="text2"><p>Inventory Management System</p></div>
+        </div>
+    </mat-grid-tile>
+   
+  </mat-grid-list>
+<br>
+    <mat-card class="label">
+        <mat-card-content>
+          <mat-card-title>Item Low on Stock</mat-card-title>
+        </mat-card-content>
+      </mat-card>
+<br>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let product of products | search: searchKey">
+          <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title><b>Product Name : </b>{{ product.prodName }}</mat-card-title>
+              <mat-card-subtitle>Product Code : {{ product.prodCode }}</mat-card-subtitle>
+              <mat-card-subtitle class="quantity">Quantity     : {{ product.quantity }}</mat-card-subtitle>
+            </mat-card-header>
+            
+                       
+            
+          </mat-card>
+        </div>
+      </div>
+      <br>
+     
+
+      <!-- <mat-card>
+        <mat-card-content>
+          <mat-card-title>Item Low on Stock</mat-card-title>
+        </mat-card-content>
+      </mat-card> -->
+      
+
+
+</body>

@@ -13,6 +13,10 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/getAll`);
   }
 
+  getLowQuantity(){
+    return this.http.get(`${this.apiUrl}/getLowQuantity`);
+  }
+
   addProduct(product: any){
     return this.http.post(`${this.apiUrl}/add`, product);
   }
