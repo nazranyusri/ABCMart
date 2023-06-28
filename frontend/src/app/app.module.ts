@@ -27,6 +27,10 @@ import { LoginComponent } from './login/login.component';
 // import { HammerModule } from '@angular/platform-browser';
 // import { IgxCarouselModule } from 'igniteui-angular';
 // import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { SearchUserPipe } from './pipes/search-user.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +42,9 @@ import { LoginComponent } from './login/login.component';
     LoginComponent,
     // CarouselComponent,
     // MdbCarouselModule
+    ManageUserComponent,
+    UpdateUserComponent,
+    SearchUserPipe
   ],
   imports: [
     BrowserModule,

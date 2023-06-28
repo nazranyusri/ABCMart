@@ -1,0 +1,111 @@
+<body>
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>Manage User</mat-card-title>
+        </mat-card-content>
+    </mat-card>
+
+    <br>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+        <mat-panel-title>Add New User</mat-panel-title>
+        </mat-expansion-panel-header>
+   
+
+    <div class = "add-form">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="user.name">
+        <mat-error>Name is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="user.email">
+        <mat-error>Email is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="user.password">
+        <mat-error>Password is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Telephone Number</mat-label>
+        <input matInput [(ngModel)]="user.telno">
+        <mat-error>Telephone No is required.</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="user.address">
+        <mat-error>Address is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <input matInput [(ngModel)]="user.gender">
+        <mat-error>Gender is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Role</mat-label>
+        <input matInput [(ngModel)]="user.role">
+        <mat-error>Role is required.</mat-error>
+    </mat-form-field>
+
+    </div>
+
+    <div *ngIf="errorMessage != null">
+        <p class="errorMessage">{{errorMessage}}</p></div>
+    <button mat-raised-button color="primary" (click)="addUser()">Add User</button>
+    </mat-expansion-panel>
+
+    <br>
+
+    <mat-card>
+        <mat-card-content>
+            Search User<br>
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input matInput placeholder="Insert user name" [(ngModel)]="searchKey">
+            </mat-form-field>
+        <div class = "table-container">
+            <table class ="table table-striped">
+                <thead>
+                    <tr>
+                        
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Telephone Number</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Action</th>
+                    </tr>
+                </thead>
+            <tbody>
+                <ng-container *ngIf="(users | searchUser: searchKey) as results">
+                    <tr *ngFor="let user of results">
+                        <td>{{ user.name}}</td>
+                        <td>{{ user.email}}</td>
+                        <td>{{ user.telno}}</td>
+                        <td>{{ user.address}}</td>
+                        <td>{{ user.gender}}</td>
+                        <td>{{ user.role}}</td>
+                    <td>
+                        <button mat-raised-button color="action-btn" (click)="updateUser(user)">Edit</button>
+                        <button mat-raised-button color="warn" (click)="deleteUser(user)">Delete</button>
+                    </td>
+                        </tr>
+                <p *ngIf="results.length == 0" class="no-records">No user found</p>
+                </ng-container>
+            </tbody>
+            </table>
+        </div>
+        </mat-card-content>
+    </mat-card>
+
+</body>
