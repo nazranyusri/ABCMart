@@ -1,4 +1,65 @@
-.image1{
+
+
+
+mat-grid-tile {
+    background: rgb(221, 202, 252);
+   
+  }
+
+.content1{
     width: 100%;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.content{
+    background: rgb(255, 255, 255);
+    /* background-color: blanchedalmond; */
+}
+
+.content2{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.text1{
+    height: 8vh;
+}
+
+h2{
+font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+.label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.row{
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.quantity{
+    color: red;
 }
