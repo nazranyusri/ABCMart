@@ -20,6 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SearchPipe } from './pipes/search.pipe';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { SearchUserPipe } from './pipes/search-user.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { SearchPipe } from './pipes/search.pipe';
     ManageStockComponent,
     HomeComponent,
     UpdateProductComponent,
-    SearchPipe
+    SearchPipe,
+    ManageUserComponent,
+    UpdateUserComponent,
+    SearchUserPipe
   ],
   imports: [
     BrowserModule,
